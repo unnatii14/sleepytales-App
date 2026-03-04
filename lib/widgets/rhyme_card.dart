@@ -37,11 +37,18 @@ class RhymeCard extends StatelessWidget {
             ),
             title: Text(
               rhyme.title,
-              style: Theme.of(context).textTheme.titleMedium,
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+              ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
             ),
             subtitle: Text(
               '${rhyme.duration} min',
-              style: Theme.of(context).textTheme.bodySmall,
+              style: Theme.of(
+                context,
+              ).textTheme.bodySmall?.copyWith(color: Colors.white70),
             ),
             trailing: IconButton(
               icon: Icon(
@@ -51,8 +58,24 @@ class RhymeCard extends StatelessWidget {
                 size: 40,
                 color: const Color(0xFF6366F1),
               ),
-              onPressed: () {
-                audioProvider.playAudio(rhyme.audioUrl, rhyme.title);
+              onPressed: () async {
+                await audioProvider.playAudio(rhyme.audioUrl, rhyme.title);
+                if (audioProvider.errorMessage != null && context.mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Row(
+                        children: [
+                          const Icon(Icons.error_outline, color: Colors.white),
+                          const SizedBox(width: 12),
+                          Expanded(child: Text(audioProvider.errorMessage!)),
+                        ],
+                      ),
+                      backgroundColor: const Color(0xFFEF4444),
+                      behavior: SnackBarBehavior.floating,
+                      duration: const Duration(seconds: 4),
+                    ),
+                  );
+                }
               },
             ),
           ),

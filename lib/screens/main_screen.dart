@@ -4,6 +4,7 @@ import '../screens/home_screen.dart';
 import '../screens/categories_screen.dart';
 import '../screens/rhymes_screen.dart';
 import '../screens/favorites_screen.dart';
+import '../screens/more_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -26,6 +27,8 @@ class _MainScreenState extends State<MainScreen> {
         return const RhymesScreen();
       case 3:
         return const FavoritesScreen();
+      case 4:
+        return const MoreScreen();
       default:
         return const HomeScreen();
     }
@@ -56,12 +59,17 @@ class _MainScreenState extends State<MainScreen> {
           NavigationDestination(
             icon: FaIcon(FontAwesomeIcons.music),
             selectedIcon: FaIcon(FontAwesomeIcons.music),
-            label: 'Rhymes',
+            label: 'Music',
           ),
           NavigationDestination(
             icon: FaIcon(FontAwesomeIcons.heart),
             selectedIcon: FaIcon(FontAwesomeIcons.solidHeart),
             label: 'Favorites',
+          ),
+          NavigationDestination(
+            icon: FaIcon(FontAwesomeIcons.ellipsis),
+            selectedIcon: FaIcon(FontAwesomeIcons.ellipsis),
+            label: 'More',
           ),
         ],
       ),

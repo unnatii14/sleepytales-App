@@ -25,31 +25,30 @@ class MusicCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
             ),
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(10.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
                 children: [
                   Icon(
-                    isPlaying ? Icons.pause_circle : Icons.music_note,
-                    size: 28,
+                    isPlaying ? Icons.pause_circle : Icons.play_circle,
+                    size: 30,
                     color: isCurrentMusic
                         ? const Color(0xFF6366F1)
                         : const Color(0xFF94A3B8),
                   ),
-                  const SizedBox(height: 4),
+                  const SizedBox(height: 6),
                   Text(
                     music.title,
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       fontSize: 12,
                       fontWeight: FontWeight.bold,
-                      height: 1.0,
+                      height: 1.2,
                     ),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  const SizedBox(height: 2),
+                  const SizedBox(height: 4),
                   Row(
                     children: [
                       Icon(
@@ -67,22 +66,24 @@ class MusicCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 4),
+                  const SizedBox(height: 6),
                   Container(
                     padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 4,
+                      horizontal: 6,
+                      vertical: 3,
                     ),
                     decoration: BoxDecoration(
                       color: const Color(0xFF6366F1).withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(6),
                     ),
                     child: Text(
                       music.category,
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         color: const Color(0xFF6366F1),
-                        fontSize: 11,
+                        fontSize: 10,
                       ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ],
