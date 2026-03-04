@@ -5,16 +5,37 @@ import '../models/story.dart';
 import '../providers/audio_player_provider.dart';
 import '../providers/favorites_provider.dart';
 import '../widgets/tts_settings_dialog.dart';
+import '../data/stories_data.dart';
 
 class StoryDetailScreen extends StatelessWidget {
   final Story story;
 
   const StoryDetailScreen({super.key, required this.story});
 
+  void _navigateToStory(BuildContext context, Story newStory) {
+    Navigator.pushReplacement(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            StoryDetailScreen(story: newStory),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return FadeTransition(opacity: animation, child: child);
+        },
+        transitionDuration: const Duration(milliseconds: 300),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final favoritesProvider = Provider.of<FavoritesProvider>(context);
     final isFavorite = favoritesProvider.isFavorite(story.id);
+
+    // Get all stories and find current index
+    final allStories = StoriesData.stories;
+    final currentIndex = allStories.indexWhere((s) => s.id == story.id);
+    final hasPrevious = currentIndex > 0;
+    final hasNext = currentIndex < allStories.length - 1;
 
     return Scaffold(
       appBar: AppBar(
@@ -218,6 +239,61 @@ class StoryDetailScreen extends StatelessWidget {
                   ),
                 );
               },
+            ),
+            const SizedBox(height: 20),
+
+            // Next/Previous Navigation
+            Row(
+              children: [
+                Expanded(
+                  child: OutlinedButton.icon(
+                    onPressed: hasPrevious
+                        ? () => _navigateToStory(
+                            context,
+                            allStories[currentIndex - 1],
+                          )
+                        : null,
+                    icon: const Icon(Icons.arrow_back),
+                    label: const Text('Previous Story'),
+                    style: OutlinedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      side: BorderSide(
+                        color: hasPrevious
+                            ? const Color(0xFF6366F1)
+                            : const Color(0xFF334155),
+                      ),
+                      foregroundColor: hasPrevious
+                          ? const Color(0xFF6366F1)
+                          : const Color(0xFF64748B),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: OutlinedButton.icon(
+                    onPressed: hasNext
+                        ? () => _navigateToStory(
+                            context,
+                            allStories[currentIndex + 1],
+                          )
+                        : null,
+                    icon: const Icon(Icons.arrow_forward),
+                    label: const Text('Next Story'),
+                    iconAlignment: IconAlignment.end,
+                    style: OutlinedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      side: BorderSide(
+                        color: hasNext
+                            ? const Color(0xFF6366F1)
+                            : const Color(0xFF334155),
+                      ),
+                      foregroundColor: hasNext
+                          ? const Color(0xFF6366F1)
+                          : const Color(0xFF64748B),
+                    ),
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 24),
           ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../data/sleep_music_data.dart';
-import '../widgets/music_card.dart';
+import '../widgets/sleep_music_card.dart';
 import '../widgets/mini_player.dart';
 
 class SleepMusicScreen extends StatelessWidget {
@@ -36,18 +36,15 @@ class SleepMusicScreen extends StatelessWidget {
                   ),
 
                   SliverPadding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    sliver: SliverGrid(
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            childAspectRatio: 1.0,
-                            crossAxisSpacing: 16,
-                            mainAxisSpacing: 16,
-                          ),
-                      delegate: SliverChildBuilderDelegate((context, index) {
-                        return MusicCard(music: music[index]);
-                      }, childCount: music.length),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    sliver: SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                        (context, index) => Padding(
+                          padding: const EdgeInsets.only(bottom: 12),
+                          child: SleepMusicCard(music: music[index]),
+                        ),
+                        childCount: music.length,
+                      ),
                     ),
                   ),
 

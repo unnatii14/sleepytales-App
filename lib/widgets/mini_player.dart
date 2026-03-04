@@ -103,7 +103,6 @@ class MiniPlayer extends StatelessWidget {
         }
 
         return Container(
-          height: 80,
           decoration: BoxDecoration(
             color: const Color(0xFF1E293B),
             boxShadow: [
@@ -127,97 +126,40 @@ class MiniPlayer extends StatelessWidget {
               ),
 
               Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 8,
-                ),
-                child: Row(
+                padding: const EdgeInsets.fromLTRB(16, 6, 8, 6),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    // Title and Time
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            audioProvider.currentTitle ?? '',
-                            style: Theme.of(context).textTheme.titleMedium,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          const SizedBox(height: 4),
-                          Row(
+                    // Row 1: Title + Play/Pause
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
                             children: [
-                              if (audioProvider.currentTitle != null &&
-                                  audioProvider.currentAudioUrl == null) ...[
-                                const Icon(
-                                  Icons.record_voice_over,
-                                  size: 12,
-                                  color: Color(0xFF6366F1),
-                                ),
-                                const SizedBox(width: 4),
-                                Text(
-                                  'AI Narration • ',
-                                  style: Theme.of(context).textTheme.bodySmall
-                                      ?.copyWith(
-                                        color: const Color(0xFF6366F1),
-                                        fontSize: 11,
-                                      ),
-                                ),
-                              ],
+                              Text(
+                                audioProvider.currentTitle ?? '',
+                                style: Theme.of(context).textTheme.titleMedium,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              const SizedBox(height: 2),
                               Text(
                                 '${_formatDuration(audioProvider.position)} / ${_formatDuration(audioProvider.duration)}',
                                 style: Theme.of(context).textTheme.bodySmall,
                               ),
                             ],
                           ),
-                        ],
-                      ),
-                    ),
-
-                    // Controls
-                    Row(
-                      children: [
-                        // TTS Settings Button (only for narrated stories)
-                        if (audioProvider.currentTitle != null &&
-                            audioProvider.currentAudioUrl == null)
-                          IconButton(
-                            icon: const Icon(Icons.tune),
-                            onPressed: () {
-                              showDialog(
-                                context: context,
-                                builder: (context) => const TtsSettingsDialog(),
-                              );
-                            },
-                            color: const Color(0xFFCBD5E1),
-                            tooltip: 'Narrator Settings',
-                          ),
-                        // Sleep Timer Button
-                        IconButton(
-                          icon: Icon(
-                            audioProvider.hasSleepTimer
-                                ? Icons.timer
-                                : Icons.timer_outlined,
-                          ),
-                          onPressed: () =>
-                              _showSleepTimerDialog(context, audioProvider),
-                          color: audioProvider.hasSleepTimer
-                              ? const Color(0xFF6366F1)
-                              : const Color(0xFFCBD5E1),
                         ),
-                        IconButton(
-                          icon: const Icon(Icons.replay_10),
-                          onPressed: () => audioProvider.seekBackward(),
-                          color: const Color(0xFFCBD5E1),
-                        ),
-                        const SizedBox(width: 8),
+                        // Primary play/pause button
                         IconButton(
                           icon: Icon(
                             audioProvider.isPlaying
-                                ? Icons.pause
-                                : Icons.play_arrow,
+                                ? Icons.pause_circle_filled
+                                : Icons.play_circle_filled,
                           ),
-                          iconSize: 36,
+                          iconSize: 42,
                           onPressed: () {
                             if (audioProvider.isPlaying) {
                               audioProvider.pause();
@@ -226,13 +168,81 @@ class MiniPlayer extends StatelessWidget {
                             }
                           },
                           color: const Color(0xFF6366F1),
+                          padding: EdgeInsets.zero,
+                          constraints: const BoxConstraints(),
                         ),
-                        const SizedBox(width: 8),
+                      ],
+                    ),
+                    // Row 2: Secondary controls
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        // Seek back
+                        IconButton(
+                          icon: const Icon(Icons.replay_10),
+                          iconSize: 22,
+                          onPressed: () => audioProvider.seekBackward(),
+                          color: const Color(0xFFCBD5E1),
+                          padding: EdgeInsets.zero,
+                          constraints: const BoxConstraints(),
+                        ),
+                        // Loop
+                        IconButton(
+                          icon: Icon(
+                            audioProvider.isLooping
+                                ? Icons.repeat_one
+                                : Icons.repeat,
+                            size: 22,
+                          ),
+                          onPressed: () => audioProvider.toggleLoop(),
+                          color: audioProvider.isLooping
+                              ? const Color(0xFF6366F1)
+                              : const Color(0xFFCBD5E1),
+                          padding: EdgeInsets.zero,
+                          constraints: const BoxConstraints(),
+                        ),
+                        // Sleep Timer
+                        IconButton(
+                          icon: Icon(
+                            audioProvider.hasSleepTimer
+                                ? Icons.timer
+                                : Icons.timer_outlined,
+                            size: 22,
+                          ),
+                          onPressed: () =>
+                              _showSleepTimerDialog(context, audioProvider),
+                          color: audioProvider.hasSleepTimer
+                              ? const Color(0xFF6366F1)
+                              : const Color(0xFFCBD5E1),
+                          padding: EdgeInsets.zero,
+                          constraints: const BoxConstraints(),
+                        ),
+                        // Seek forward
                         IconButton(
                           icon: const Icon(Icons.forward_10),
+                          iconSize: 22,
                           onPressed: () => audioProvider.seekForward(),
                           color: const Color(0xFFCBD5E1),
+                          padding: EdgeInsets.zero,
+                          constraints: const BoxConstraints(),
                         ),
+                        // TTS Settings (only for narrated stories)
+                        if (audioProvider.currentTitle != null &&
+                            audioProvider.currentAudioUrl == null)
+                          IconButton(
+                            icon: const Icon(Icons.tune, size: 22),
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (context) => const TtsSettingsDialog(),
+                              );
+                            },
+                            color: const Color(0xFFCBD5E1),
+                            padding: EdgeInsets.zero,
+                            constraints: const BoxConstraints(),
+                          )
+                        else
+                          const SizedBox(width: 22),
                       ],
                     ),
                   ],

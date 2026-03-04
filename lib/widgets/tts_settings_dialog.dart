@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import '../providers/audio_player_provider.dart';
 
 class TtsSettingsDialog extends StatelessWidget {
-  const TtsSettingsDialog({Key? key}) : super(key: key);
+  const TtsSettingsDialog({super.key});
 
   @override
   Widget build(BuildContext context) {

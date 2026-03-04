@@ -107,4 +107,115 @@ class AppTheme {
       ),
     );
   }
+
+  // Light Theme
+  static ThemeData get lightTheme {
+    return ThemeData(
+      useMaterial3: true,
+      brightness: Brightness.light,
+      primaryColor: primaryColor,
+      scaffoldBackgroundColor: const Color(0xFFF8FAFC),
+
+      colorScheme: const ColorScheme.light(
+        primary: primaryColor,
+        secondary: secondaryColor,
+        surface: Colors.white,
+        surfaceTint: Colors.transparent,
+        error: Color(0xFFEF4444),
+      ),
+
+      textTheme: TextTheme(
+        displayLarge: GoogleFonts.poppins(
+          fontSize: 32,
+          fontWeight: FontWeight.bold,
+          color: const Color(0xFF0F172A),
+        ),
+        displayMedium: GoogleFonts.poppins(
+          fontSize: 28,
+          fontWeight: FontWeight.bold,
+          color: const Color(0xFF1E293B),
+        ),
+        displaySmall: GoogleFonts.poppins(
+          fontSize: 24,
+          fontWeight: FontWeight.w600,
+          color: const Color(0xFF1E293B),
+        ),
+        headlineMedium: GoogleFonts.poppins(
+          fontSize: 20,
+          fontWeight: FontWeight.w600,
+          color: const Color(0xFF334155),
+        ),
+        titleLarge: GoogleFonts.poppins(
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+          color: const Color(0xFF334155),
+        ),
+        titleMedium: GoogleFonts.poppins(
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
+          color: const Color(0xFF475569),
+        ),
+        bodyLarge: GoogleFonts.inter(
+          fontSize: 16,
+          color: const Color(0xFF64748B),
+        ),
+        bodyMedium: GoogleFonts.inter(
+          fontSize: 14,
+          color: const Color(0xFF64748B),
+        ),
+        bodySmall: GoogleFonts.inter(
+          fontSize: 12,
+          color: const Color(0xFF94A3B8),
+        ),
+      ),
+
+      cardTheme: CardThemeData(
+        color: Colors.white,
+        elevation: 2,
+        shadowColor: Colors.black.withOpacity(0.1),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      ),
+
+      appBarTheme: AppBarTheme(
+        backgroundColor: const Color(0xFFF8FAFC),
+        elevation: 0,
+        centerTitle: false,
+        foregroundColor: const Color(0xFF0F172A),
+        titleTextStyle: GoogleFonts.poppins(
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+          color: const Color(0xFF0F172A),
+        ),
+        iconTheme: const IconThemeData(color: Color(0xFF334155)),
+      ),
+
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: primaryColor,
+          foregroundColor: Colors.white,
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          textStyle: GoogleFonts.poppins(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: Colors.white,
+        selectedItemColor: primaryColor,
+        unselectedItemColor: const Color(0xFF94A3B8),
+        type: BottomNavigationBarType.fixed,
+        elevation: 8,
+        selectedLabelStyle: GoogleFonts.inter(
+          fontSize: 12,
+          fontWeight: FontWeight.w600,
+        ),
+        unselectedLabelStyle: GoogleFonts.inter(fontSize: 12),
+      ),
+    );
+  }
 }

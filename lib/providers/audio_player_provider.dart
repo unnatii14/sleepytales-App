@@ -17,6 +17,7 @@ class AudioPlayerProvider with ChangeNotifier {
   String? _currentTitle;
   String? _currentStoryText;
   bool _usingTts = false;
+  String? _errorMessage;
 
   // TTS Settings
   double _speechRate = 0.45; // Slightly faster than before but still calm
@@ -25,12 +26,16 @@ class AudioPlayerProvider with ChangeNotifier {
   String? _currentVoice;
   List<dynamic> _availableVoices = [];
 
+  // Loop Mode
+  bool _isLooping = false;
+
   // Sleep Timer
   Timer? _sleepTimer;
   int _sleepTimerMinutes = 0;
   DateTime? _sleepTimerEndTime;
 
   bool get isPlaying => _isPlaying;
+  bool get isLooping => _isLooping;
   bool get isLoading => _isLoading;
   Duration get duration => _duration;
   Duration get position => _position;
@@ -45,6 +50,7 @@ class AudioPlayerProvider with ChangeNotifier {
   double get volume => _volume;
   String? get currentVoice => _currentVoice;
   List<dynamic> get availableVoices => _availableVoices;
+  String? get errorMessage => _errorMessage;
   bool get hasSleepTimer => _sleepTimer != null && _sleepTimer!.isActive;
   Duration? get remainingSleepTime {
     if (_sleepTimerEndTime == null) return null;
@@ -83,9 +89,15 @@ class AudioPlayerProvider with ChangeNotifier {
 
     _audioPlayer.processingStateStream.listen((state) {
       if (state == ProcessingState.completed && !_usingTts) {
-        _position = Duration.zero;
-        _isPlaying = false;
-        notifyListeners();
+        if (_isLooping && _currentAudioUrl != null) {
+          // Replay the audio if looping is enabled
+          _audioPlayer.seek(Duration.zero);
+          _audioPlayer.play();
+        } else {
+          _position = Duration.zero;
+          _isPlaying = false;
+          notifyListeners();
+        }
       }
     });
   }
@@ -122,17 +134,23 @@ class AudioPlayerProvider with ChangeNotifier {
 
     // Initialize TTS for stories - optimized for children's bedtime
     await _flutterTts.setLanguage("en-US");
-    await _flutterTts.setSpeechRate(_speechRate); // Calm and clear
-    await _flutterTts.setPitch(_pitch); // Warm and engaging
-    await _flutterTts.setVolume(_volume);
+    await _flutterTts.setSpeechRate(0.35); // Slow speed for children
+    await _flutterTts.setVolume(1.0);
+    await _flutterTts.setPitch(1.0);
 
     _flutterTts.setCompletionHandler(() {
       if (_usingTts) {
-        _isPlaying = false;
-        _currentTitle = null;
-        _currentStoryText = null;
-        _usingTts = false;
-        notifyListeners();
+        if (_isLooping && _currentStoryText != null) {
+          // Replay the story if looping is enabled
+          final textWithPauses = _addPausesToText(_currentStoryText!);
+          _flutterTts.speak(textWithPauses);
+        } else {
+          _isPlaying = false;
+          _currentTitle = null;
+          _currentStoryText = null;
+          _usingTts = false;
+          notifyListeners();
+        }
       }
     });
 
@@ -186,7 +204,17 @@ class AudioPlayerProvider with ChangeNotifier {
     } catch (e) {
       debugPrint('Error playing audio: $e');
       _isLoading = false;
+      _isPlaying = false;
+      _currentAudioUrl = null;
+      _currentTitle = null;
+      _errorMessage =
+          'Audio file is not available yet. Please check back soon.';
       notifyListeners();
+      // Auto-clear error after 4 seconds
+      Future.delayed(const Duration(seconds: 4), () {
+        _errorMessage = null;
+        notifyListeners();
+      });
     }
   }
 
@@ -246,6 +274,10 @@ class AudioPlayerProvider with ChangeNotifier {
       notifyListeners();
       // flutter_tts continues automatically after pause
     } else {
+      // If audio completed, seek back to start before replaying
+      if (_audioPlayer.processingState == ProcessingState.completed) {
+        await _audioPlayer.seek(Duration.zero);
+      }
       await _audioPlayer.play();
     }
   }
@@ -351,6 +383,17 @@ class AudioPlayerProvider with ChangeNotifier {
     _sleepTimer = null;
     _sleepTimerMinutes = 0;
     _sleepTimerEndTime = null;
+    notifyListeners();
+  }
+
+  // Loop/Repeat Functions
+  void toggleLoop() {
+    _isLooping = !_isLooping;
+    notifyListeners();
+  }
+
+  void setLoop(bool value) {
+    _isLooping = value;
     notifyListeners();
   }
 

@@ -7,8 +7,7 @@ class RhymesData {
       title: 'ABCD Song',
       description: 'Learn the alphabet with this classic nursery rhyme',
       duration: 2,
-      imageUrl:
-          'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600',
+      imageUrl: 'assets/images/g1.png',
       audioUrl: 'assets/audio/rhymes/nrt-1-abcd-Song.mp3',
       lyrics: [
         'A B C D E F G,',
@@ -25,8 +24,7 @@ class RhymesData {
       title: 'I\'m a Little Teapot',
       description: 'A fun and playful nursery rhyme about a teapot',
       duration: 2,
-      imageUrl:
-          'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=600',
+      imageUrl: 'assets/images/g2.png',
       audioUrl: 'assets/audio/rhymes/nrt-2-i-am-a-little-teapot.mp3',
       lyrics: [
         'I\'m a little teapot, short and stout,',
@@ -41,8 +39,7 @@ class RhymesData {
       title: 'Pat-a-Cake',
       description: 'A sweet baking rhyme for little ones',
       duration: 2,
-      imageUrl:
-          'https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=600',
+      imageUrl: 'assets/images/g3.png',
       audioUrl: 'assets/audio/rhymes/nrt-3-pat-a-cake.mp3',
       lyrics: [
         'Pat-a-cake, pat-a-cake, baker\'s man,',
@@ -57,8 +54,7 @@ class RhymesData {
       title: 'Row Row Row Your Boat',
       description: 'A gentle rowing adventure on the stream',
       duration: 2,
-      imageUrl:
-          'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600',
+      imageUrl: 'assets/images/g4.png',
       audioUrl: 'assets/audio/rhymes/nrt-5-row-row-row-your-boat.mp3',
       lyrics: [
         'Row, row, row your boat,',
@@ -73,8 +69,7 @@ class RhymesData {
       title: 'One Two Buckle My Shoe',
       description: 'Count along with this fun number rhyme',
       duration: 2,
-      imageUrl:
-          'https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?w=600',
+      imageUrl: 'assets/images/g5.png',
       audioUrl: 'assets/audio/rhymes/nrt-6-one-two-buckle-my-shoe.mp3',
       lyrics: [
         'One, two, buckle my shoe,',
@@ -89,8 +84,7 @@ class RhymesData {
       title: 'Baa Baa Black Sheep',
       description: 'A woolly tale of sharing',
       duration: 2,
-      imageUrl:
-          'https://images.unsplash.com/photo-1516934024742-b461fba47600?w=600',
+      imageUrl: 'assets/images/g6.png',
       audioUrl: 'assets/audio/rhymes/nrt-7-baa-baa-black-sheep.mp3',
       lyrics: [
         'Baa, baa, black sheep,',
@@ -105,8 +99,7 @@ class RhymesData {
       title: 'Twinkle Twinkle Little Star',
       description: 'A classic lullaby about the stars in the night sky',
       duration: 2,
-      imageUrl:
-          'https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=600',
+      imageUrl: 'assets/images/g7.png',
       audioUrl: 'assets/audio/rhymes/nrt-8-twinkle-twinkle-little-star.mp3',
       lyrics: [
         'Twinkle, twinkle, little star,',
@@ -121,8 +114,7 @@ class RhymesData {
       title: 'Head Shoulders Knees and Toes',
       description: 'Learn body parts with this active rhyme',
       duration: 2,
-      imageUrl:
-          'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600',
+      imageUrl: 'assets/images/g1.png',
       audioUrl: 'assets/audio/rhymes/nrt-9-head-shoulders-knees-and-toes.mp3',
       lyrics: [
         'Head, shoulders, knees and toes, knees and toes,',
@@ -137,8 +129,7 @@ class RhymesData {
       title: 'Hey Diddle Diddle',
       description: 'A whimsical tale of a cat and a fiddle',
       duration: 2,
-      imageUrl:
-          'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600',
+      imageUrl: 'assets/images/g2.png',
       audioUrl: 'assets/audio/rhymes/nrt-10-hey-diddle-diddle.mp3',
       lyrics: [
         'Hey diddle diddle, the cat and the fiddle,',
@@ -153,8 +144,7 @@ class RhymesData {
       title: 'BINGO',
       description: 'A farmer\'s dog named BINGO',
       duration: 2,
-      imageUrl:
-          'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600',
+      imageUrl: 'assets/images/g3.png',
       audioUrl: 'assets/audio/rhymes/nrt-13-bingo.mp3',
       lyrics: [
         'There was a farmer had a dog,',
@@ -169,8 +159,7 @@ class RhymesData {
       title: 'Hickory Dickory Dock',
       description: 'A mouse runs up the clock',
       duration: 2,
-      imageUrl:
-          'https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=600',
+      imageUrl: 'assets/images/g4.png',
       audioUrl: 'assets/audio/rhymes/nrt-14-hickory-dickory-dock.mp3',
       lyrics: [
         'Hickory dickory dock,',
@@ -186,8 +175,7 @@ class RhymesData {
       title: 'If You\'re Happy and You Know It',
       description: 'Express your happiness with actions',
       duration: 2,
-      imageUrl:
-          'https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=600',
+      imageUrl: 'assets/images/g5.png',
       audioUrl: 'assets/audio/rhymes/nrt-17-if-youre-happy-and-you-know-it.mp3',
       lyrics: [
         'If you\'re happy and you know it, clap your hands!',
@@ -203,8 +191,7 @@ class RhymesData {
       title: 'The Wheels on the Bus',
       description: 'A fun journey on the bus',
       duration: 3,
-      imageUrl:
-          'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=600',
+      imageUrl: 'assets/images/g6.png',
       audioUrl: 'assets/audio/rhymes/nrt-18-wheels-on-the-bus.mp3',
       lyrics: [
         'The wheels on the bus go round and round,',
@@ -219,8 +206,7 @@ class RhymesData {
       title: 'Old MacDonald Had a Farm',
       description: 'Meet all the animals on the farm',
       duration: 3,
-      imageUrl:
-          'https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=600',
+      imageUrl: 'assets/images/g7.png',
       audioUrl: 'assets/audio/rhymes/nrt-19-old-macdonald-had-a-farm.mp3',
       lyrics: [
         'Old MacDonald had a farm, E-I-E-I-O!',
