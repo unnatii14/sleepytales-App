@@ -22,7 +22,7 @@ class StoriesData {
       id: 'magical',
       name: 'Magical World',
       emoji: '✨',
-      storyCount: 3,
+      storyCount: 4,
       description: 'Enchanting magical tales',
     ),
     StoryCategory(
@@ -36,7 +36,7 @@ class StoriesData {
       id: 'fairy-tales',
       name: 'Fairy Tales',
       emoji: '👸',
-      storyCount: 10,
+      storyCount: 9,
       description: 'Classic fairy tale magic',
     ),
     StoryCategory(

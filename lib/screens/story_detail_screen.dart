@@ -4,7 +4,6 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import '../models/story.dart';
 import '../providers/audio_player_provider.dart';
 import '../providers/favorites_provider.dart';
-import '../widgets/tts_settings_dialog.dart';
 import '../data/stories_data.dart';
 
 class StoryDetailScreen extends StatelessWidget {
@@ -144,75 +143,6 @@ class StoryDetailScreen extends StatelessWidget {
             ],
 
             const SizedBox(height: 32),
-
-            // Narration Info Card
-            Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    const Color(0xFF6366F1).withOpacity(0.15),
-                    const Color(0xFF8B5CF6).withOpacity(0.15),
-                  ],
-                ),
-                borderRadius: BorderRadius.circular(16),
-                border: Border.all(
-                  color: const Color(0xFF6366F1).withOpacity(0.3),
-                  width: 1,
-                ),
-              ),
-              child: Row(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF6366F1).withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: const Icon(
-                      Icons.record_voice_over,
-                      color: Color(0xFF6366F1),
-                      size: 28,
-                    ),
-                  ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'AI Narrator',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white,
-                          ),
-                        ),
-                        const SizedBox(height: 4),
-                        Text(
-                          'Customize voice speed, pitch & volume',
-                          style: TextStyle(
-                            fontSize: 13,
-                            color: Colors.white.withOpacity(0.7),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.settings, color: Color(0xFF6366F1)),
-                    onPressed: () {
-                      showDialog(
-                        context: context,
-                        builder: (context) => const TtsSettingsDialog(),
-                      );
-                    },
-                  ),
-                ],
-              ),
-            ),
-
-            const SizedBox(height: 20),
 
             // Play Button
             Consumer<AudioPlayerProvider>(

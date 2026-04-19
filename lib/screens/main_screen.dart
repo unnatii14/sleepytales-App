@@ -59,7 +59,7 @@ class _MainScreenState extends State<MainScreen> {
           NavigationDestination(
             icon: FaIcon(FontAwesomeIcons.music),
             selectedIcon: FaIcon(FontAwesomeIcons.music),
-            label: 'Music',
+            label: 'Rhymes',
           ),
           NavigationDestination(
             icon: FaIcon(FontAwesomeIcons.heart),

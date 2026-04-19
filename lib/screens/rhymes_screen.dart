@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../data/rhymes_data.dart';
-import '../data/sleep_music_data.dart';
 import '../widgets/rhyme_card.dart';
-import '../widgets/sleep_music_card.dart';
 import '../widgets/mini_player.dart';
 
 class RhymesScreen extends StatelessWidget {
@@ -11,7 +9,7 @@ class RhymesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final rhymes = RhymesData.getAllRhymes();
-    final sleepMusic = SleepMusicData.getAllMusic();
+    final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
       body: SafeArea(
@@ -19,36 +17,55 @@ class RhymesScreen extends StatelessWidget {
           children: [
             Expanded(
               child: CustomScrollView(
+                physics: const BouncingScrollPhysics(),
                 slivers: [
-                  SliverAppBar(
-                    floating: true,
-                    title: const Text('Lullabies & Music'),
-                    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                  ),
-
-                  // Sleep Music Section
+                  // ── Gradient header ───────────────────────────────────────
                   SliverToBoxAdapter(
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 20, 20, 12),
-                      child: Row(
+                    child: Container(
+                      padding: const EdgeInsets.fromLTRB(20, 20, 20, 24),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: isDark
+                              ? [const Color(0xFF1E1B4B), const Color(0xFF0F172A)]
+                              : [const Color(0xFFEC4899), const Color(0xFFA855F7)],
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).primaryColor.withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Icon(
-                              Icons.music_note,
-                              color: Theme.of(context).primaryColor,
-                              size: 20,
-                            ),
+                          Row(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                  color: Colors.white.withOpacity(0.15),
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: const Icon(
+                                  Icons.music_note_rounded,
+                                  size: 24,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(width: 12),
+                              const Text(
+                                'Nursery Rhymes',
+                                style: TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
                           ),
-                          const SizedBox(width: 12),
+                          const SizedBox(height: 10),
                           Text(
-                            'Sleep Music',
-                            style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                              fontWeight: FontWeight.bold,
+                            '${rhymes.length} favourite rhymes for little ones',
+                            style: TextStyle(
+                              fontSize: 13,
+                              color: Colors.white.withOpacity(0.8),
                             ),
                           ),
                         ],
@@ -56,61 +73,35 @@ class RhymesScreen extends StatelessWidget {
                     ),
                   ),
 
-                  SliverPadding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    sliver: SliverList(
-                      delegate: SliverChildBuilderDelegate(
-                        (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.only(bottom: 16),
-                            child: SleepMusicCard(music: sleepMusic[index]),
-                          );
-                        },
-                        childCount: sleepMusic.length,
-                      ),
-                    ),
-                  ),
-
-                  // Nursery Rhymes Section
+                  // ── Section label ─────────────────────────────────────────
                   SliverToBoxAdapter(
                     child: Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 20, 20, 12),
+                      padding: const EdgeInsets.fromLTRB(20, 20, 20, 4),
                       child: Row(
                         children: [
-                          Container(
-                            padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              color: Colors.pink.withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: const Icon(
-                              Icons.child_care,
-                              color: Colors.pink,
-                              size: 20,
-                            ),
-                          ),
-                          const SizedBox(width: 12),
+                          const Text('🎵', style: TextStyle(fontSize: 16)),
+                          const SizedBox(width: 8),
                           Text(
-                            'Nursery Rhymes',
-                            style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
+                            'Sing along & drift off',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.copyWith(fontWeight: FontWeight.w600),
                           ),
                         ],
                       ),
                     ),
                   ),
 
+                  // ── Rhymes list ───────────────────────────────────────────
                   SliverPadding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
                     sliver: SliverList(
                       delegate: SliverChildBuilderDelegate(
-                        (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.only(bottom: 16),
-                            child: RhymeCard(rhyme: rhymes[index]),
-                          );
-                        },
+                        (context, index) => Padding(
+                          padding: const EdgeInsets.only(bottom: 16),
+                          child: RhymeCard(rhyme: rhymes[index]),
+                        ),
                         childCount: rhymes.length,
                       ),
                     ),

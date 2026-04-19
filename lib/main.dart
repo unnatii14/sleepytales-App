@@ -6,8 +6,9 @@ import 'providers/audio_player_provider.dart';
 import 'providers/favorites_provider.dart';
 import 'providers/theme_provider.dart';
 import 'screens/main_screen.dart';
+import 'screens/onboarding_screen.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Set preferred orientations
@@ -24,11 +25,16 @@ void main() {
     ),
   );
 
-  runApp(const SleepyTalesApp());
+  // Check whether onboarding has already been seen
+  final onboardingSeen = await OnboardingScreen.hasBeenSeen();
+
+  runApp(SleepyTalesApp(showOnboarding: !onboardingSeen));
 }
 
 class SleepyTalesApp extends StatelessWidget {
-  const SleepyTalesApp({super.key});
+  final bool showOnboarding;
+
+  const SleepyTalesApp({super.key, required this.showOnboarding});
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +52,9 @@ class SleepyTalesApp extends StatelessWidget {
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
             themeMode: themeProvider.themeMode,
-            home: const MainScreen(),
+            home: showOnboarding
+                ? const OnboardingScreen()
+                : const MainScreen(),
           );
         },
       ),

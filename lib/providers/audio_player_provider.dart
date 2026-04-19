@@ -20,8 +20,8 @@ class AudioPlayerProvider with ChangeNotifier {
   String? _errorMessage;
 
   // TTS Settings
-  double _speechRate = 0.45; // Slightly faster than before but still calm
-  double _pitch = 1.1; // Slightly higher pitch for more engaging voice
+  double _speechRate = 0.28; // Slow, calm pace for young children
+  double _pitch = 1.0; // Natural pitch
   double _volume = 1.0;
   String? _currentVoice;
   List<dynamic> _availableVoices = [];
@@ -134,7 +134,7 @@ class AudioPlayerProvider with ChangeNotifier {
 
     // Initialize TTS for stories - optimized for children's bedtime
     await _flutterTts.setLanguage("en-US");
-    await _flutterTts.setSpeechRate(0.35); // Slow speed for children
+    await _flutterTts.setSpeechRate(0.28); // Very slow, soothing pace for children
     await _flutterTts.setVolume(1.0);
     await _flutterTts.setPitch(1.0);
 
