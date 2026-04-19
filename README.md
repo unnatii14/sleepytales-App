@@ -31,7 +31,7 @@
 ## 📱 Download
 
 ### For Users
-📥 **[Download Latest APK](https://github.com/unnatii14/sleepytales-App/releases)** (v1.0.0)
+📥 **[Download Latest APK](https://github.com/unnatii14/sleepytales-App/releases)**- **[Download PlayStore](https://play.google.com/store/apps/details?id=com.sleepytales.app)**(v1.0.0)
 
 *Requires Android 7.0+ (API 24) | ~98 MB*
 
