@@ -7,7 +7,7 @@ class RhymesData {
       title: 'ABCD Song',
       description: 'Learn the alphabet with this classic nursery rhyme',
       duration: 2,
-      imageUrl: 'assets/images/The Rabbit and The Shooting Star.png',
+      imageUrl: 'assets/images/The Rabbit and The Shooting Star.jpg',
       audioUrl: 'assets/audio/rhymes/nrt-1-abcd-Song.mp3',
       lyrics: [
         'A B C D E F G,',
@@ -24,7 +24,7 @@ class RhymesData {
       title: 'I\'m a Little Teapot',
       description: 'A fun and playful nursery rhyme about a teapot',
       duration: 2,
-      imageUrl: 'assets/images/The Lantern of Little Lila.png',
+      imageUrl: 'assets/images/The Lantern of Little Lila.jpg',
       audioUrl: 'assets/audio/rhymes/nrt-2-i-am-a-little-teapot.mp3',
       lyrics: [
         'I\'m a little teapot, short and stout,',
@@ -39,7 +39,7 @@ class RhymesData {
       title: 'Pat-a-Cake',
       description: 'A sweet baking rhyme for little ones',
       duration: 2,
-      imageUrl: 'assets/images/The Sleepy Bear and the Midnight Star.png',
+      imageUrl: 'assets/images/The Sleepy Bear and the Midnight Star.jpg',
       audioUrl: 'assets/audio/rhymes/nrt-3-pat-a-cake.mp3',
       lyrics: [
         'Pat-a-cake, pat-a-cake, baker\'s man,',
@@ -54,7 +54,7 @@ class RhymesData {
       title: 'Row Row Row Your Boat',
       description: 'A gentle rowing adventure on the stream',
       duration: 2,
-      imageUrl: 'assets/images/The Turtle Who Chased the Sunset.png',
+      imageUrl: 'assets/images/The Turtle Who Chased the Sunset.jpg',
       audioUrl: 'assets/audio/rhymes/nrt-5-row-row-row-your-boat.mp3',
       lyrics: [
         'Row, row, row your boat,',
@@ -69,7 +69,7 @@ class RhymesData {
       title: 'One Two Buckle My Shoe',
       description: 'Count along with this fun number rhyme',
       duration: 2,
-      imageUrl: 'assets/images/Cinderella.png',
+      imageUrl: 'assets/images/Cinderella.jpg',
       audioUrl: 'assets/audio/rhymes/nrt-6-one-two-buckle-my-shoe.mp3',
       lyrics: [
         'One, two, buckle my shoe,',
@@ -84,7 +84,7 @@ class RhymesData {
       title: 'Baa Baa Black Sheep',
       description: 'A woolly tale of sharing',
       duration: 2,
-      imageUrl: 'assets/images/The Snowy Owl and the Northern Lights.png',
+      imageUrl: 'assets/images/The Snowy Owl and the Northern Lights.jpg',
       audioUrl: 'assets/audio/rhymes/nrt-7-baa-baa-black-sheep.mp3',
       lyrics: [
         'Baa, baa, black sheep,',
@@ -99,7 +99,7 @@ class RhymesData {
       title: 'Twinkle Twinkle Little Star',
       description: 'A classic lullaby about the stars in the night sky',
       duration: 2,
-      imageUrl: 'assets/images/The Moon that Wanted to Dream.png',
+      imageUrl: 'assets/images/The Moon that Wanted to Dream.jpg',
       audioUrl: 'assets/audio/rhymes/nrt-8-twinkle-twinkle-little-star.mp3',
       lyrics: [
         'Twinkle, twinkle, little star,',
@@ -114,7 +114,7 @@ class RhymesData {
       title: 'Head Shoulders Knees and Toes',
       description: 'Learn body parts with this active rhyme',
       duration: 2,
-      imageUrl: 'assets/images/The Rabbit and The Shooting Star.png',
+      imageUrl: 'assets/images/The Rabbit and The Shooting Star.jpg',
       audioUrl: 'assets/audio/rhymes/nrt-9-head-shoulders-knees-and-toes.mp3',
       lyrics: [
         'Head, shoulders, knees and toes, knees and toes,',
@@ -129,7 +129,7 @@ class RhymesData {
       title: 'Hey Diddle Diddle',
       description: 'A whimsical tale of a cat and a fiddle',
       duration: 2,
-      imageUrl: 'assets/images/The Lantern of Little Lila.png',
+      imageUrl: 'assets/images/The Lantern of Little Lila.jpg',
       audioUrl: 'assets/audio/rhymes/nrt-10-hey-diddle-diddle.mp3',
       lyrics: [
         'Hey diddle diddle, the cat and the fiddle,',
@@ -144,7 +144,7 @@ class RhymesData {
       title: 'BINGO',
       description: 'A farmer\'s dog named BINGO',
       duration: 2,
-      imageUrl: 'assets/images/The Sleepy Bear and the Midnight Star.png',
+      imageUrl: 'assets/images/The Sleepy Bear and the Midnight Star.jpg',
       audioUrl: 'assets/audio/rhymes/nrt-13-bingo.mp3',
       lyrics: [
         'There was a farmer had a dog,',
@@ -159,7 +159,7 @@ class RhymesData {
       title: 'Hickory Dickory Dock',
       description: 'A mouse runs up the clock',
       duration: 2,
-      imageUrl: 'assets/images/The Turtle Who Chased the Sunset.png',
+      imageUrl: 'assets/images/The Turtle Who Chased the Sunset.jpg',
       audioUrl: 'assets/audio/rhymes/nrt-14-hickory-dickory-dock.mp3',
       lyrics: [
         'Hickory dickory dock,',
@@ -175,7 +175,7 @@ class RhymesData {
       title: 'If You\'re Happy and You Know It',
       description: 'Express your happiness with actions',
       duration: 2,
-      imageUrl: 'assets/images/Cinderella.png',
+      imageUrl: 'assets/images/Cinderella.jpg',
       audioUrl: 'assets/audio/rhymes/nrt-17-if-youre-happy-and-you-know-it.mp3',
       lyrics: [
         'If you\'re happy and you know it, clap your hands!',
@@ -191,7 +191,7 @@ class RhymesData {
       title: 'The Wheels on the Bus',
       description: 'A fun journey on the bus',
       duration: 3,
-      imageUrl: 'assets/images/The Snowy Owl and the Northern Lights.png',
+      imageUrl: 'assets/images/The Snowy Owl and the Northern Lights.jpg',
       audioUrl: 'assets/audio/rhymes/nrt-18-wheels-on-the-bus.mp3',
       lyrics: [
         'The wheels on the bus go round and round,',
@@ -206,7 +206,7 @@ class RhymesData {
       title: 'Old MacDonald Had a Farm',
       description: 'Meet all the animals on the farm',
       duration: 3,
-      imageUrl: 'assets/images/The Moon that Wanted to Dream.png',
+      imageUrl: 'assets/images/The Moon that Wanted to Dream.jpg',
       audioUrl: 'assets/audio/rhymes/nrt-19-old-macdonald-had-a-farm.mp3',
       lyrics: [
         'Old MacDonald had a farm, E-I-E-I-O!',

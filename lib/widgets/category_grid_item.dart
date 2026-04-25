@@ -27,19 +27,19 @@ class CategoryGridItem extends StatelessWidget {
       case 'Animals':
         return 'assets/images/Brave Little Penguin.jpeg';
       case 'Space':
-        return 'assets/images/The Moon that Wanted to Dream.png';
+        return 'assets/images/The Moon that Wanted to Dream.jpg';
       case 'Nature':
-        return 'assets/images/The Snowy Owl and the Northern Lights.png';
+        return 'assets/images/The Snowy Owl and the Northern Lights.jpg';
       case 'Adventures':
-        return 'assets/images/The Turtle Who Chased the Sunset.png';
+        return 'assets/images/The Turtle Who Chased the Sunset.jpg';
       case 'Magical World':
-        return 'assets/images/The Sleepy Dragon Who Couldnt Roar.png';
+        return 'assets/images/The Sleepy Dragon Who Couldnt Roar.jpg';
       case 'Fairy Tales':
-        return 'assets/images/Cinderella.png';
+        return 'assets/images/Cinderella.jpg';
       case 'Moral Stories':
-        return 'assets/images/The Wise Owl and The Worried Rabbit.png';
+        return 'assets/images/The Wise Owl and The Worried Rabbit.jpg';
       default:
-        return 'assets/images/The Moon that Wanted to Dream.png';
+        return 'assets/images/The Moon that Wanted to Dream.jpg';
     }
   }
 

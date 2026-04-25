@@ -156,7 +156,14 @@ class StoryDetailScreen extends StatelessWidget {
                   height: 56,
                   child: ElevatedButton.icon(
                     onPressed: () {
-                      audioProvider.playStory(story.description, story.title);
+                      // Use real MP3 if available, otherwise fall back to TTS
+                      final hasRealAudio = story.audioUrl.isNotEmpty &&
+                          !story.audioUrl.contains('story-placeholder');
+                      if (hasRealAudio) {
+                        audioProvider.playAudio(story.audioUrl, story.title);
+                      } else {
+                        audioProvider.playStory(story.description, story.title);
+                      }
                     },
                     icon: Icon(
                       isPlaying ? Icons.pause : Icons.play_arrow,

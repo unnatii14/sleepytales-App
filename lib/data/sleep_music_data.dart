@@ -9,7 +9,7 @@ class SleepMusicData {
       category: 'Lullabies',
       duration: 90,
       imageUrl: 'assets/images/The Sleepy Moon\'s Lullaby.jpeg',
-      audioUrl: 'assets/audio/music/flute-lullaby.wav',
+      audioUrl: 'assets/audio/music/flute-lullaby.mp3',
     ),
     SleepMusic(
       id: '2',
@@ -18,7 +18,7 @@ class SleepMusicData {
       category: 'Nature Sounds',
       duration: 90,
       imageUrl: 'assets/images/Cloud Who Wanted to Be Rain.jpeg',
-      audioUrl: 'assets/audio/music/rain-thunder.wav',
+      audioUrl: 'assets/audio/music/rain-thunder.mp3',
     ),
     SleepMusic(
       id: '3',
@@ -26,8 +26,8 @@ class SleepMusicData {
       description: 'Soft bird whistles drifting through a peaceful forest',
       category: 'Nature Sounds',
       duration: 90,
-      imageUrl: 'assets/images/The Snowy Owl and the Northern Lights.png',
-      audioUrl: 'assets/audio/music/forest-birds.wav',
+      imageUrl: 'assets/images/The Snowy Owl and the Northern Lights.jpg',
+      audioUrl: 'assets/audio/music/forest-birds.mp3',
     ),
     SleepMusic(
       id: '4',
@@ -36,7 +36,7 @@ class SleepMusicData {
       category: 'Lullabies',
       duration: 90,
       imageUrl: 'assets/images/The Magical Music Box.jpg',
-      audioUrl: 'assets/audio/music/piano-lullaby.wav',
+      audioUrl: 'assets/audio/music/piano-lullaby.mp3',
     ),
     SleepMusic(
       id: '5',
@@ -44,8 +44,8 @@ class SleepMusicData {
       description: 'Twinkle Twinkle Little Star on a delicate music box',
       category: 'Lullabies',
       duration: 90,
-      imageUrl: 'assets/images/The Moon that Wanted to Dream.png',
-      audioUrl: 'assets/audio/music/music-box.wav',
+      imageUrl: 'assets/images/The Moon that Wanted to Dream.jpg',
+      audioUrl: 'assets/audio/music/music-box.mp3',
     ),
     SleepMusic(
       id: '6',
@@ -53,8 +53,8 @@ class SleepMusicData {
       description: 'Warm soft chord pads floating gently into dreamland',
       category: 'Ambient',
       duration: 90,
-      imageUrl: 'assets/images/The Elephant Who Painted Dreams.png',
-      audioUrl: 'assets/audio/music/dreamy-chords.wav',
+      imageUrl: 'assets/images/The Elephant Who Painted Dreams.jpg',
+      audioUrl: 'assets/audio/music/dreamy-chords.mp3',
     ),
     SleepMusic(
       id: '7',
@@ -63,7 +63,7 @@ class SleepMusicData {
       category: 'Lullabies',
       duration: 90,
       imageUrl: 'assets/images/The Dove Who Delivered Dreams.jpeg',
-      audioUrl: 'assets/audio/music/harp-melody.wav',
+      audioUrl: 'assets/audio/music/harp-melody.mp3',
     ),
     SleepMusic(
       id: '8',
@@ -71,8 +71,8 @@ class SleepMusicData {
       description: 'Soft bell chimes ringing gently in a calm breeze',
       category: 'Nature Sounds',
       duration: 90,
-      imageUrl: 'assets/images/The Cricket and the silent Night.png',
-      audioUrl: 'assets/audio/music/wind-chimes.wav',
+      imageUrl: 'assets/images/The Cricket and the silent Night.jpg',
+      audioUrl: 'assets/audio/music/wind-chimes.mp3',
     ),
     SleepMusic(
       id: '9',
@@ -81,7 +81,7 @@ class SleepMusicData {
       category: 'Nature Sounds',
       duration: 90,
       imageUrl: 'assets/images/The Starfish and The Gentle Tide.jpg',
-      audioUrl: 'assets/audio/music/ocean-waves.wav',
+      audioUrl: 'assets/audio/music/ocean-waves.mp3',
     ),
   ];
 
